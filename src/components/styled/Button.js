@@ -36,34 +36,34 @@ const StyledButton = styled("button")(
     variant({
         variants: {
             contained: {
-                background: "purple.300",
+                background: "green.300",
                 color: "white",
                 border: "none",
                 "&:hover": {
-                    background: "purple.600",
+                    background: "green.600",
                 },
             },
             outlined: {
                 background: "transparent",
-                color: "purple.300",
+                color: "green.300",
                 border: "1.2px solid",
-                borderColor: "purple.300",
+                borderColor: "green.300",
                 "&:hover": {
-                    color: "purple.600",
-                    borderColor: "purple.600",
+                    color: "green.600",
+                    borderColor: "green.600",
                     "& svg > *": {
-                        fill: "purple.600",
+                        fill: "white",
                     },
                 },
             },
             text: {
                 background: "transparent",
-                color: "purple.300",
+                color: "green.300",
                 border: "none",
                 "&:hover": {
-                    color: "purple.600",
+                    color: "green.600",
                     "& svg > *": {
-                        fill: "purple.600",
+                        fill: "green.300",
                     },
                 },
             },
