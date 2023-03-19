@@ -3,7 +3,7 @@ import { Button, Container, Stack } from './styled'
 import { Link } from "react-router-dom";
 import { ReactComponent as ArrowRight } from '../images/arrow-right.svg';
 import { ReactComponent as ArrowLeft } from '../images/arrow-left.svg';
-import { useSelector } from 'react-redux';
+//import { useSelector } from 'react-redux';
 
 const Paginator = () => {
   return (
