@@ -13,7 +13,7 @@ const Header = () => {
                 <Stack direction='column' align='center'>
                     <Container>
                         <Stack justify='space-between' align='center' width='100%' height={["64px", "72px"]}>
-                            <Link to='#' style={{ textDecoration: "none", }}>
+                            <Link to='/' style={{ textDecoration: "none", }}>
                                 <Logo />
                             </Link>
                             <Button variant='text'>

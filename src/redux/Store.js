@@ -1,10 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import ApiReducer from './reducers/ApiReducer'
 
-const Store = configureStore({
+export const Store = configureStore({
   reducer: {
-    data: ApiReducer
+    recipes: ApiReducer
   }
 })
-
-export default Store
