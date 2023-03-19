@@ -48,6 +48,7 @@ const HomeBody = () => {
     } else {
       fetchRecipes(lastSearch.type)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemForPage])
 
   return (
