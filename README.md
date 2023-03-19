@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 # Vegetarian Food
-=======
-<a href="https://fantastic-froyo-2c62db.netlify.app/">Netlify</a>
-
-# Getting Started with Create React App
->>>>>>> 00a4a62798466a6f597432920d92c1db61be43b5
 
 ## Premessa
 
