@@ -2,7 +2,7 @@
 
 ## Premessa
 
-E' in fase di completamento e presenta bug grafici.
+E' in fase di completamento e presenta bug grafici e di script
 
 ## Descrizione
 
