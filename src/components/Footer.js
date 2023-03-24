@@ -13,9 +13,9 @@ const Footer = () => {
             <Container>
                 <Stack width='100%' justify='flex-start'>
                     <Stack align='start' spacing='20px'>
-                        <Box>
+                        <Link to='/' style={{ textDecoration: "none", }}>
                             <Logo />
-                        </Box>
+                        </Link>
                         <Stack direction='column' align='start' height='100%' spacing='20px'>
                             <Box>
                                 <Link to='#' style={{ textDecoration: "none", }}>

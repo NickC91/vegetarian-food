@@ -5,10 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { catchError, fetchData, saveQuery, updatePage } from "../redux/reducers/ApiReducer";
 import { rowalizer } from "../utils/Helpers";
 import RecipeSection from './RecipeSection'
-import Paginator from "./Paginator";
 
 const HomeBody = () => {
-
   const dispatch = useDispatch()
 
   const { recipes, error, loading, rateLimit, query: lastSearch } = useSelector((state) => state.recipes)
@@ -70,27 +68,20 @@ const HomeBody = () => {
       <Container mt='72px'>
         <Stack direction="column" spacing='118px'>
           {
-            !loading && !error.status && (recipes.length > 0 || recipes.results.length > 0) ? (
-              rowalizer(recipes.results).map((el) => {
-                return <RecipeSection row={el} />
+            !loading && !error.status && recipes.totalResults > 0 ? (
+              rowalizer(recipes.results).map((el, index) => {
+                return <RecipeSection row={el} key={index} />
               })
             ) : !loading && error.status ? (
-              <h3>
-                {error?.message && error.message.length > 0
-                  ? error.message.join(" ")
-                  : "Nessuna ricetta trovata"}
-              </h3>
-            )
-              : (
-                <h3>Loading...</h3>
-              )
-          }
-
+              <h3>{"No recipe found"}</h3>
+            ) : (
+              <h3>Loading...</h3>
+            )}
           <Stack justify='flex-end'>
             <p style={{ color: "var(--grey-900)", }}>
-              Item per Page{" "}
+              Recipes founded: {recipes.totalResults} - Filter for Total{" "}
               <select value={itemForPage} onChange={(e) => setItemForPage(e.target.value)}>
-                {Array.from({ length: 5 }, (_, index) => {
+                {Array.from({ length: recipes.totalResults / 12 }, (_, index) => {
                   return (index + 1) * 3;
                 }).map((el) => {
                   return (
@@ -104,7 +95,6 @@ const HomeBody = () => {
           </Stack>
         </Stack>
       </Container>
-      <Paginator />
     </Container >
   )
 }

@@ -19,12 +19,6 @@ const initialState = {
     type: "",
     query: "",
   },
-  pagination: {
-    nextPage: null,
-    prevPage: null,
-    totalPage: null,
-    currentPage: 1,
-  },
 }
 
 const recipeSlice = createSlice({
@@ -61,15 +55,10 @@ const recipeSlice = createSlice({
     updatePage: (state, action) => {
       state.pagination = action.payload
     },
-    checkPagination: (state, action) => {
-      state.pagination.nextPage = action.payload.nextPage
-      state.pagination.prevPage = action.payload.prevPage
-      state.pagination.totalPage = action.payload.totalPage
-    },
   }
 })
 
-const { startLoading, saveDate, stopLoading, catchError, cleanError, checkRateLimit, saveQuery, updatePage, checkPagination } = recipeSlice.actions
+const { startLoading, saveDate, stopLoading, catchError, cleanError, checkRateLimit, saveQuery, updatePage } = recipeSlice.actions
 
 const { reducer } = recipeSlice
 
@@ -82,16 +71,8 @@ export const fetchData = (path) => async (dispatch, getState) => {
     console.log(response)
     if (response?.data?.totalResults === 0) {
       dispatch(catchError('Nessuna ricetta trovata'))
+      dispatch(stopLoading())
       return
-    }
-    if (response?.data?.total_pages) {
-      const { currentPage } = getState().recipes.pagination
-      const paginationInfo = {
-        prevPage: currentPage > 1,
-        nextPage: currentPage + 1 <= response?.data?.total_pages,
-        totalPage: response?.data?.total_pages,
-      }
-      dispatch(checkPagination(paginationInfo))
     }
     dispatch(checkRateLimit({
       request: response.headers['x-API-Quota-Request'],
@@ -104,6 +85,6 @@ export const fetchData = (path) => async (dispatch, getState) => {
   dispatch(stopLoading())
 }
 
-export { catchError, cleanError, saveQuery, updatePage }
+export { catchError, cleanError, saveQuery, updatePage, stopLoading }
 
 export default reducer

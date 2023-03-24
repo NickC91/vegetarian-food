@@ -33,7 +33,7 @@ const Hero = () => {
             <h1>Vegetarian Food</h1>
           </Box>
           <CustomButton variant='text' size={['lg', 'xl']} rightIcon={<RightIcon />}>
-            Vedi ricette
+            For you ❤️
           </CustomButton>
         </Stack>
         <Box width='100%' heigth='365px' position='relative' borderRadius='16px' overflow='hidden' display='flex' style={{ transform: 'translateZ(0)' }}>

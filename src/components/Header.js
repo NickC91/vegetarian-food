@@ -18,7 +18,7 @@ const Header = () => {
                             </Link>
                             <Button variant='text'>
                                 <Link to='#' style={{ textDecoration: "none", }}>
-                                    <h2 style={{ color: '#ffffff' }}>Vegetarian Food - for u and for me ❤️</h2>
+                                    <h2 style={{ color: '#ffffff' }}>Vegetarian Food</h2>
                                 </Link>
                             </Button>
                             <Box>

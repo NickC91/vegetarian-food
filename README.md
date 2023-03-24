@@ -1,9 +1,5 @@
 # Vegetarian Food
 
-## Premessa
-
-E' in fase di completamento e presenta bug grafici e di script
-
 ## Descrizione
 
 Sito web per ricette solo ed esclusivamente vegetariane, utilizzando l'API di <a href='https://spoonacular.com/food-api'>spoonacular</a>
