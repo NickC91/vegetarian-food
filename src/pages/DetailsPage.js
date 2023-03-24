@@ -56,7 +56,7 @@ const DetailsPage = () => {
               </CustomStack>
               <h3 style={{ marginTop: '35px' }}>Presentation:</h3>
               <p>{instructions}</p>
-              <h3 style={{ marginTop: '35px' }}>Preparation</h3>
+              <h3 style={{ marginTop: '35px' }}>Preparation:</h3>
               <p>{summary}</p>
             </div>
           )

@@ -9,7 +9,7 @@ import RecipeSection from './RecipeSection'
 const HomeBody = () => {
   const dispatch = useDispatch()
 
-  const { recipes, error, loading, rateLimit, query: lastSearch } = useSelector((state) => state.recipes)
+  const { recipes, error, loading, /*rateLimit,*/ query: lastSearch } = useSelector((state) => state.recipes)
 
   const [itemForPage, setItemForPage] = useState(12)
   const [query, setQuery] = useState("")
@@ -25,7 +25,7 @@ const HomeBody = () => {
       if (query && query.length > 1 && query !== ' ') {
         apiUrl = `complexSearch?query=${query}&`
       } else {
-        dispatch(catchError(['Ricerca senza valori']))
+        dispatch(catchError(['Query with no recipes']))
       }
     } else {
       apiUrl = 'complexSearch?'
@@ -53,12 +53,12 @@ const HomeBody = () => {
     <Container size='fullwidth'>
       <Container mt='96px'>
         <Stack justify='space-between' align='end'>
-          <h4>Cerca ricette</h4>
-          <p>{`Richieste: ${rateLimit.request} / ${rateLimit.used} / ${rateLimit.left}`}</p>
+          <h4>Find recipes</h4>
+          {/*<p>{`Richieste: ${rateLimit.request} / ${rateLimit.used} / ${rateLimit.left}`}</p>*/}
         </Stack>
         <Box mt='24px'>
           <Stack width='fit-content' bg='white' borderRadius='100px' border='2px solid' borderColor={'green.300'} px='18px' style={{ overFlowX: 'hidden' }}>
-            <InputWrapper placeholder="Cerca ricette" border='none' borderColor={error.status ? 'Errore' : "green-600"} pl='0' value={query} onChange={(e) => {
+            <InputWrapper placeholder="Find some recipes" border='none' borderColor={error.status ? 'Errore' : "green-600"} pl='0' value={query} onChange={(e) => {
               setQuery(e.target.value)
             }} />
             <Button onClick={() => searchRecipes()} rightIcon={<SearchIcon />} isLoading={false} disabled={false} variant='text' iconColor='white' bg='white' />
